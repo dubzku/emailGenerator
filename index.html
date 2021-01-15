@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👀 Guess That Email! 🔎</title>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}audio,video{display:inline-block}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:sans-serif;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}button,html [type=button],[type=reset],[type=submit]{-webkit-appearance:button}button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{display:inline-block;vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details,menu{display:block}summary{display:list-item}canvas{display:inline-block}template{display:none}[hidden]{display:none}
+        
+        * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+        
+        .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
+        
+        .srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
+
+
+        body,
+        input,
+        button {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+        }
+
+        body,
+        input,
+        .clipboard {
+            background-color: #faf0ca;
+        }
+
+        h1 {
+            color: #f95738;
+            font-family: 'Pacifico', cursive;
+            font-size: 40px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .wrapper {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 1200px;
+        }
+
+        header,
+        main, 
+        input {
+            text-align: center;
+        }
+
+        .inputContainer,
+        .buttonContainer {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+        }
+
+        input {
+            padding: 8px 10px;
+            width: 60%;
+            border: black 1px solid;
+        }
+
+        button[type="submit"],
+        button[type="reset"] {
+            background-color: #0d3b66;
+            border: #0d3b66 1px solid;
+            color: white;
+            padding: 8px 12px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .clipboard {
+            font-size: 23px;
+            color: #f95738;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        a {
+            color: #0d3b66;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="wrapper">
+        <h1>👀 Guess That Email! 🔎</h1>
+        <h2>This email generator will give possible combinations of emails that this person might have!</h2>
+    </header>
+    <main class="wrapper">
+        <form action="">
+            <div class="inputContainer">
+                <label class="srOnly" for="firstName">First Name:</label>
+                <input id="firstName" class ="firstName" type="text" placeholder="First name">
+            </div>
+    
+            <div class="inputContainer">
+                <label class="srOnly" for="lastName">Last Name:</label>
+                <input id="lastName" class="lastName" type="text" placeholder="Last name">
+            </div>
+    
+            <div class="inputContainer">
+                <label class="srOnly" for="emailDomain">Email Domain:</label>
+                <input id="emailDomain" class="emailDomain" type="text" placeholder="Email Domain">
+            </div>
+
+            <div class="buttonContainer">
+                <button type="submit">Generate</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <div class="resultsContainer">
+            <!-- append results here -->
+        </div>
+    </main>
+
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
+    <script src="https://kit.fontawesome.com/ab4a38dafe.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script>
+
+        $(function() {
+            init();
+        })
+
+        init = () => {
+            onSubmit();
+            onReset();
+            copyToClipboard();
+        }
+
+        onSubmit = () => {
+            $('form').on('submit', (e) => {
+                e.preventDefault();
+    
+                const $firstName = $('.firstName').val().toLowerCase()
+                const $lastName = $('.lastName').val().toLowerCase()
+                const $emailDomain = $('.emailDomain').val().toLowerCase()
+                const firstNameLetter = $firstName.split('')[0]
+                const lastNameLetter = $lastName.split('')[0]
+                const firstNameCapital = firstNameLetter.toUpperCase() + $firstName.slice(1)
+                const lastNameCapital = lastNameLetter.toUpperCase() + $lastName.slice(1)
+    
+                if ($firstName === "" || $lastName === "" || $emailDomain === "") {
+                    alert('All fields required!')
+                } else {
+                    $('.resultsContainer').html(`
+                        <h2>${firstNameCapital} ${lastNameCapital}'s possible emails are:</h2>
+                        <ul>
+                            <li><a href="mailto:${$firstName}@${$emailDomain}">${$firstName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$firstName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$firstName}${$lastName}@${$emailDomain}">${$firstName}${$lastName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$firstName}${$lastName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$firstName}.${$lastName}@${$emailDomain}">${$firstName}.${$lastName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$firstName}.${$lastName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$firstName}.${lastNameLetter}@${$emailDomain}">${$firstName}.${lastNameLetter}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$firstName}.${lastNameLetter}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$firstName}${lastNameLetter}@${$emailDomain}">${$firstName}${lastNameLetter}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$firstName}${lastNameLetter}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${firstNameLetter}${$lastName}@${$emailDomain}">${firstNameLetter}${$lastName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${firstNameLetter}${$lastName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${firstNameLetter}.${$lastName}@${$emailDomain}">${firstNameLetter}.${$lastName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${firstNameLetter}.${$lastName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$lastName}${$firstName}@${$emailDomain}">${$lastName}${$firstName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$lastName}${$firstName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+    
+                            <li><a href="mailto:${$lastName}.${$firstName}@${$emailDomain}">${$lastName}.${$firstName}@${$emailDomain}</a><button class="clipboard" data-clipboard-text="${$lastName}.${$firstName}@${$emailDomain}"><i class="far fa-copy"></i></button></li>
+                        </ul>
+                    `)
+                }
+            })
+        }
+
+        onReset = () => {
+            $('form').on('reset', () => {
+                $('.resultsContainer').empty()
+            })
+        }
+
+        copyToClipboard = () => {
+            $('.clipboard').tooltip({
+                trigger: 'click',
+                placement: 'bottom'
+            });
+    
+            setTooltip = (btn, message) => {
+                btn.tooltip('hide')
+                    .attr('data-original-title', message)
+                    .tooltip('show');
+            }
+    
+            hideTooltip = (btn) => {
+                setTimeout(function() {
+                    btn.tooltip('hide');
+                }, 1000);
+            }
+    
+            let clipboard = new ClipboardJS('.clipboard');
+    
+            clipboard.on('success', function(e) {
+                let btn = $(e.trigger);
+                setTooltip(btn, 'Copied!');
+                hideTooltip(btn);
+            });
+        }
+
+
+    </script>
+</body>
+</html>
