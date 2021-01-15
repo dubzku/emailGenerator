@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>👀 Guess That Email! 🔎</title>
+    <title>Guess That Email! 🔎</title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap" rel="stylesheet">
@@ -15,7 +15,6 @@
         .visuallyHidden:not(:focus):not(:active) { position: absolute; width: 1px; height: 1px; margin: -1px;border: 0;padding: 0;white-space: nowrap;clip-path: inset(100%);clip: rect(00 0 0);overflow: hidden;}
         
         .srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
-
 
         body,
         input,
@@ -48,8 +47,13 @@
 
         header,
         main, 
-        input {
+        input,
+        footer {
             text-align: center;
+        }
+
+        main {
+            height: 80vh;
         }
 
         .inputContainer,
@@ -88,6 +92,10 @@
             list-style-type: none;
         }
 
+        p {
+            margin: 0;
+        }
+
         li {
             margin: 8px 0;
             font-size: 15px;
@@ -98,11 +106,27 @@
             text-decoration: none;
         }
 
+        footer {
+            background-color: #0d3b66;
+            color: white;
+            padding: 8px 0;
+        }
+
+        span {
+            font-size: 18px;
+        }
+
+        footer a,
+        footer a:hover {
+            color: white;
+        }
+
+
     </style>
 </head>
 <body>
     <header class="wrapper">
-        <h1>👀 Guess That Email! 🔎</h1>
+        <h1>Guess That Email! 🔎</h1>
         <h2>This email generator will give possible combinations of emails that this person might have!</h2>
     </header>
     <main class="wrapper">
@@ -131,6 +155,9 @@
             <!-- append results here -->
         </div>
     </main>
+    <footer>
+        <p>Made for <span>👀</span>, by <a href="https://github.com/dubzku" target="_blank">@dubzku</a></p>
+    </footer>
 
     <script src='https://code.jquery.com/jquery-3.2.1.min.js' integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4='crossorigin='anonymous'></script>
     <script src="https://kit.fontawesome.com/ab4a38dafe.js" crossorigin="anonymous"></script>
@@ -155,14 +182,17 @@
                 const $firstName = $('.firstName').val().toLowerCase()
                 const $lastName = $('.lastName').val().toLowerCase()
                 const $emailDomain = $('.emailDomain').val().toLowerCase()
-                const firstNameLetter = $firstName.split('')[0]
-                const lastNameLetter = $lastName.split('')[0]
-                const firstNameCapital = firstNameLetter.toUpperCase() + $firstName.slice(1)
-                const lastNameCapital = lastNameLetter.toUpperCase() + $lastName.slice(1)
     
                 if ($firstName === "" || $lastName === "" || $emailDomain === "") {
                     alert('All fields required!')
                 } else {
+
+                    const firstNameLetter = $firstName.split('')[0]
+                    const lastNameLetter = $lastName.split('')[0]
+                    const firstNameCapital = firstNameLetter.toUpperCase() + $firstName.slice(1)
+                    const lastNameCapital = lastNameLetter.toUpperCase() + $lastName.slice(1)
+
+
                     $('.resultsContainer').html(`
                         <h2>${firstNameCapital} ${lastNameCapital}'s possible emails are:</h2>
                         <ul>
